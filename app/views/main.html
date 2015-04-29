@@ -10,17 +10,17 @@
       <table class="table table-hover">
         <thead>
           <tr>
-          <th>{{company.name}}</th>
-          <th></th>
-          <th></th>
-          <th class="text-right">{{company.steps}}</th>
-        </tr>
+            <th ng-if="company.branding_logo_url"><img ng-src="{{company.branding_logo_url}}" width="30" height="30"></th>
+            <th>
+              <a href="{{company.url}}" target="_blank">{{company.name}}</a>
+            </th>
+            <th class="text-right">{{company.steps}}</th>
+          </tr>
         </thead>
         <tbody>
           <tr ng-repeat="user in company.users">
             <td><img ng-src="{{user.photo_url}}" width="30" height="30"></td>
             <td>{{user.firstname}} {{user.lastname}}</td>
-            <td></td>
             <td class="text-right">{{user.steps}}</td>
           </tr>
         </tbody>
