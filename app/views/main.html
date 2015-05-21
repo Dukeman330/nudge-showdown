@@ -1,9 +1,15 @@
 <div class="row">
    <div class="col-md-12 text-center">
-   <h1>the SHOWDOWN</h1>
-   <small>Powered by <strong class="text-branded">Nudge</strong></small>
-    <h2 ng-if="startDate">{{startDate}} - {{endDate}}</h2>
-    <br/>
+     <h1>the SHOWDOWN</h1>
+     <small>Powered by <strong class="text-branded">Nudge</strong></small>
+     <div class="row date" ng-if="startDate">
+        <strong class="arrow-left" ng-click="changeDate(true)">&#60;&nbsp;</strong>
+        <span>{{startDate*1000 | date:'MMM dd'}} - {{endDate*1000 | date:'MMM dd'}}</span>
+        <strong class="arrow-right" ng-click="changeDate(false)" ng-class="{now: now}">&nbsp;&#62;</strong>
+      </div>
+      <div ng-if="!now">
+        <h1 ng-if="!now" class="text-branded">Winner: {{companies[0].name}}</h1><br/><br/>
+      </div>
   </div>
   <div class="row">
     <div class="col-md-4" ng-repeat="company in companies">

@@ -41,7 +41,7 @@ h1{
 
 }
 
-h2 {
+h2, .date {
   line-height: normal;
   font-weight: 500;
   font-style: normal;
@@ -88,4 +88,12 @@ tbody tr:hover {
 
 .btn-primary:hover{
   background-color: #f19700;
+}
+
+.arrow-right, .arrow-left {
+  color: $brand;
+}
+
+.arrow-right.now {
+  color: LightGray;
 }
