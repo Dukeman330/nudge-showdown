@@ -4,9 +4,9 @@ angular.module('nudgeShowdownApp')
   .factory('leaderboard', ['$http', function($http) {
     return {
       get: function(startDate) {
-        var url = 'http://nudge-api.app:8000/showdown';
+        var url = 'https://api.nudgeyourself.com/showdown';
         if (startDate) {
-          url += '?date='+startDate.format('YY-MM-DD');
+          url += '?date='+startDate;
         }
 
         return $http.get(url);

@@ -17,7 +17,7 @@ angular.module('nudgeShowdownApp')
         $scope.startDate = response.data.start_date;
         $scope.endDate = response.data.end_date;
         $scope.companies = response.data.companies;
-        $scope.now = parseInt(moment().format('X'), 10) < $scope.endDate;
+        $scope.now = Math.floor(Date.now()/1000) < $scope.endDate;
       });
     };
 
@@ -25,13 +25,7 @@ angular.module('nudgeShowdownApp')
 
     $scope.changeDate = function(goBack) {
       if (goBack || !$scope.now) {
-        var newDate = moment($scope.startDate*1000);
-        if (goBack) {
-          newDate = newDate.subtract(7, 'days');
-        } else {
-          newDate = newDate.add(7, 'days');
-        }
-
+        var newDate = (goBack) ? $scope.startDate - 604800 : $scope.startDate + 604800;
         getData(newDate);
       }
     };
