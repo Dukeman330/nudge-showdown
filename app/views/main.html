@@ -25,9 +25,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in company.users">
+          <tr ng-repeat="user in company.users | filter:{on_deck: false}">
             <td><img ng-src="{{user.photo_url}}" width="30" height="30"></td>
             <td>{{user.firstname}} {{user.lastname}}</td>
+            <td class="text-right">{{user.steps}}</td>
+          </tr>
+          <tr ng-repeat="user in company.users | filter:{on_deck: true}" class="on-deck">
+            <td><img ng-src="{{user.photo_url}}" width="30" height="30"></td>
+            <td>{{user.firstname}} {{user.lastname}} (on deck)</td>
             <td class="text-right">{{user.steps}}</td>
           </tr>
         </tbody>

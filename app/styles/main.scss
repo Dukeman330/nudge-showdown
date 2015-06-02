@@ -97,3 +97,11 @@ tbody tr:hover {
 .arrow-right.now {
   color: LightGray;
 }
+
+.on-deck td {
+  font-style: italic;
+}
+
+.on-deck .text-right {
+  text-decoration: line-through;
+}
