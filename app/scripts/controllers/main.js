@@ -29,4 +29,8 @@ angular.module('nudgeShowdownApp')
         getData(newDate);
       }
     };
+    $scope.isVisible = false;
+    $scope.toggleUserVisibility = function(isVisible){
+      $scope.isVisible = !$scope.isVisible;
+    }
   }]);

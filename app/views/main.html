@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in company.users | filter:{on_deck: false}">
+          <tr ng-repeat="user in company.users | filter:{on_deck: false}" ng-class="{'hidden': $index >= 5 && isVisible == false }" >
             <td><img ng-src="{{user.photo_url}}" width="30" height="30"></td>
             <td>{{user.firstname}} {{user.lastname}}</td>
             <td class="text-right">{{user.steps}}</td>
@@ -34,6 +34,9 @@
             <td><img ng-src="{{user.photo_url}}" width="30" height="30"></td>
             <td>{{user.firstname}} {{user.lastname}} (on deck)</td>
             <td class="text-right">{{user.steps}}</td>
+          </tr>
+          <tr ng-click="toggleUserVisibility(isVisible)">
+            <td colspan="3" style="text-align:center;font-weight:bold">Click to show more users</td>
           </tr>
         </tbody>
       </table>
