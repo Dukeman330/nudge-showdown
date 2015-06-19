@@ -12,35 +12,7 @@
       </div>
   </div>
   <div class="row">
-    <div class="col-md-4" ng-repeat="company in companies">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th ng-if="company.branding_logo_url"><img ng-src="{{company.branding_logo_url}}" width="30" height="30"></th>
-            <th>
-              <a href="{{company.url}}" target="_blank">{{company.name}}</a>
-            </th>
-            <th ng-if="company.branding_logo_url === null"></th>
-            <th class="text-right">{{company.steps}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="user in company.users | filter:{on_deck: false}" ng-class="{'hidden': $index >= 5 && isVisible == false }" >
-            <td><img ng-src="{{user.photo_url}}" width="30" height="30"></td>
-            <td>{{user.firstname}} {{user.lastname}}</td>
-            <td class="text-right">{{user.steps}}</td>
-          </tr>
-          <tr ng-repeat="user in company.users | filter:{on_deck: true}" class="on-deck">
-            <td><img ng-src="{{user.photo_url}}" width="30" height="30"></td>
-            <td>{{user.firstname}} {{user.lastname}} (on deck)</td>
-            <td class="text-right">{{user.steps}}</td>
-          </tr>
-          <tr ng-click="toggleUserVisibility(isVisible)">
-            <td colspan="3" style="text-align:center;font-weight:bold">Click to show more users</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <company-panel company="company" ng-repeat="company in companies" />
   </div>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">

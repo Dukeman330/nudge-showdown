@@ -4,7 +4,7 @@ angular.module('nudgeShowdownApp')
   .factory('leaderboard', ['$http', function($http) {
     return {
       get: function(startDate) {
-        var url = 'https://api.nudgeyourself.com/showdown';
+        var url = 'http://localhost:3000/fauxapi';
         if (startDate) {
           url += '?date='+startDate;
         }

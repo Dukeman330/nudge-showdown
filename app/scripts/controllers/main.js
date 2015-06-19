@@ -29,8 +29,36 @@ angular.module('nudgeShowdownApp')
         getData(newDate);
       }
     };
-    $scope.isVisible = false;
-    $scope.toggleUserVisibility = function(isVisible){
-      $scope.isVisible = !$scope.isVisible;
-    }
   }]);
+
+  /**
+   * @ngdoc function
+   * @name nudgeShowdownApp.directive:companyPanel
+   * @description
+   * # Company Panel
+   * Directive to render company panels
+   */
+  (function () {
+  'use strict';
+
+  angular
+    .module('nudgeShowdownApp')
+    .directive('companyPanel', companyPanel);
+
+  function companyPanel () {
+    return {
+      restrict: 'E',
+      templateUrl: 'views/companyPanel.tpl.html',
+      scope: {
+        company: '='
+      },
+      link: function companyPanelLink(scope, elem, attrs) {
+
+        scope.isVisible = false;
+        scope.toggleUserVisibility = function() {
+          scope.isVisible = !scope.isVisible;
+        }
+      }
+    };
+  }
+  })();
